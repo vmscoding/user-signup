@@ -3,24 +3,39 @@
 {% block content %}
     <h1>Signup</h1>
     <article>
-        <div>
-            <label>Username
-                <input type='text' name='username'/>
-            </label>
-            <br>
-            <label>Password
-                <input type='text' name='password'/>
-            </label>
-            <br>
-            <label>Confirm Password
-                <input type='text' name='password_confirm'/>
-            </label>
-            <br>
-            <label>Email (optional)
-                <input type='text' name='email'/>
-            </label>
-        </div>
         <form action='/welcome' method='post'>
+            <div>
+                <label>Username
+                    <input type='text' name='username'/>
+                </label>
+                    {% if error_user %}
+                    <p class='error'>
+                        {{ error_user }}
+                    </p>
+                    {% endif %}
+                <br>
+                <label>Password
+                    <input type='text' name='password'/>
+                </label>
+                    {% if error_pass %}
+                    <p class='error'>
+                        {{ error_pass }}
+                    </p>
+                    {% endif %}
+                <br>
+                <label>Confirm Password
+                    <input type='text' name='password_confirm'/>
+                </label>
+                    {% if error_conf %}
+                    <p class='error'>
+                        {{ error_conf }}
+                    </p>
+                    {% endif %}
+                <br>
+                <label>Email (optional)
+                    <input type='text' name='email'/>
+                </label>
+            </div>
             <input type='submit' value='Log on!' />
         </form>
     </article>
